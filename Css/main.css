@@ -1,0 +1,3168 @@
+/* 
+    .CSS => cascade style sheet
+    .language to greate the presentation and visuals
+    .in Css there is kinds of stylling =>
+        .External Style ( <link rel="stylesheet" href=""> )
+        .Internal Style ( <style> p { color: red; } <style/> )
+        .Inline Style ( <p style="color: blue;">This is a Paragraph<p/> )
+    .how to write code css => 
+        Selector {
+            Property: Value;
+            Propertytwo: Value
+        }
+    .for class => .
+    .for ID => #
+    .target all paragraphs
+    .you can not started the selectore with a number
+    .Property: red; => color name
+    .property: rgb(0 0 0 / A); Red Green Blue Alpha Channel, the max of the color is 255 and the min is 0
+    .property: #FF0000; color Hex Code, the max FF, the min 00 (rrggbb)
+    .background-image: url("../img/imgname.png");
+    .background-repeat: => there is four cases: repeat, no-repeat, repeat-x, repeat-y
+    .backgruond-attachment: scroll or fixed;
+    .background-position: left-(top,center,bottom),  right-(top,center,bottom),  center-(top,center,bottom)
+    .background-position: nn nn nn nn => left top right buttom  with px or %
+    .background-size: auto or cover or contain  (contain is responsive)
+    .background-size: width height (px or %)
+    .Padding: Top, Right, Bottom, Left
+    .if we did not write all the value, the value will be the opposit foe exp:
+      padding: 10px 20px 15px it's like => padding: 10px 20px 15px 20px 
+    .Padding is the enternal margin
+    .margin is the external margin
+    .we can write a neggative value in margin but in padding no
+    .the border have a width, color and style(type) and they all have 4 value like the margin and the padding
+    .we can write border: width style color => for exp: border: 10px solid red;
+    .outline is external of element, and it's opposit of the border
+    .display:   
+        .block => -take full width if no width
+                -add line break
+                -respect padding margin width and height and ...
+        .inline => - do not add line break
+                - do not respect width height 
+                - respect padding and margin but just left and right
+                - allow elements before and after it
+        .inline-block => - allow elements before and after it
+                        - respect padding margin width and height and ...
+   .display: none => to hide the elements
+   .visibility: visible or hidden but it have a place when it hidden
+   .Grouping Multiple Selectors => it's whene they have the same properties
+   .Nesting it's when you need element entarnal like div p {} or div .class{} ...
+   .min-width and max-width => it's like when have a paragpaph to do not lose a good disign
+   .min-height and max-height => the same
+   .width: fit-content its like inline-block
+   .acpect-ratio: width/hight => 1/1=1
+   .Overflow => -visibile  means that the words can goes outsite the div
+                -hidden means that the over words be hidden
+                -scroll means that that all the words be in the div
+                -auto its when the words more than the div it will be scroll
+   .overflow-x and overflow-y
+   .text-shadow: H-shadow(x), V-shadow(y), Blur, Color
+   .text-align: center or left or right
+   .direction: left to right (ltf) or right to left (rtl)
+   .vertical-align; top or middle or bottom
+   .text-decoration: none or underline or overline or line-through
+   .text-transofrm: capitalize (the first lettter capital) or uppercase(all capital) or lowercase (all small)
+   .letter-spacing: the space betwwen letters
+   .text-indent:  the space befor the words
+   .line-height:  the height between the lines
+   .word-spacing: space between the words
+   .white-space: nowrap
+   .word-break: break-word
+   .text-overflow: ellipsis;(...)
+   .inherit => to inherit what the parents have to the children
+   .CSS Units => - px
+                 - em => Time (it's nTime from the size of the parents, if we have 
+                        for example: font-size: 10px(parents) and font-size: 2em(child) that's mean font-size
+                        for the child is 2*10=20px
+                 - rem => Root Time (he take from the html)
+                 - vw => View Port Width: is the width of the web page and 1vw=1% from the web page width
+                 - vmin => View Port Minmum:  This unit is based on the smaller dimension of 
+                       the viewport. If the viewport height is smaller than the width, the value of 1vmin  
+                       will be equal to 1% of the viewport height.
+                 - vh => Viewport Height
+                 - percentag => he take a persontage from his parent
+   .Default font size for web page is 16px
+   .font-style
+   .font-variant
+   .font-weight => is from 100 to 900 or bold or normal
+   .cursor => the style of the mouse
+   .Float => it let the element swim left or right
+   .clear => it helps the float and it is left or right or both
+   .Calc => propert: calc(x/y);
+   .opacity => it's like alpha in the color but this can do it for all the content
+   .opacity: 1 => 100%
+   .position => - static( default) it will note move 
+                - relative  it will move from his place and just it
+                - absolute  it will leave the workflow and it will move from the page
+                  if we want from the child with position absulote to move just in 
+                  his parent and not leave from it, the parent choold be with postion
+                  relative
+                - fixed its like the absulute but it moving with the scroll
+                - sticky its when you dowing a scroll and go to one place and not moving
+                  like a link in navigation bar
+   .Z-index => the nomber of the element and it work just with position
+   .list-style-type
+   .list-style-position
+   .list-style-image
+   .list-style: type position image;
+   .display: table
+   .selector: Pseudo class{
+       property: value;
+   }
+   .Pseudo classes: hover, checked, visited, empty, focus, ... . 
+   .selector:: Pseudo element{
+       property: value;
+   }
+   .Pseudo elemets:: first-letter, first-line, selection, before, after (before and after can not
+     work without the property content: "";)
+   .counter-increment: value;   content: counter(value)
+   .content: attr();
+   .Vendors Prefixes: -Chrome
+                      -Safari
+                      -Firefox
+                      -IE, Edge
+                      -Opera
+   .how it work: 1- New CSS Feature Appeared
+                 2- Browsers Tests The Feature In Version X
+                 3- Browsers Add Prefix To Give Devlopers The Ability To Use It
+                 4- The Feature Is Fully Supported In Version Y => No Need For Prefix
+   .Prefixes: -Webkit => Chrome, Safari, New Opera Version
+              -Moz => Firefox
+              -Ms => Ie, Edge
+              -O => Old Vesrsion of Opera
+   .For Exp: .class{
+               -webkit-border-raduis: 10px;
+               -moz-border-raduis: 10px;
+               -o-border-raduis: 10px;
+               -ms-border-raduis: 10px;
+               border-raduis: 10px;
+            }
+   .if you want to know this property usible or not you can check it in the site (can i use)
+   .border-radius: top right bottom left 
+   .the default value is 0
+   .if we have width = height and border-rdius: 50% => we will have a circle
+   .the corner have 2 value
+   .box-shadow => to dowing a shadow to the box 
+   .box-shadow: H-shadow V-shadow Blur Spread(the text-shadow don't have) color Inset(enternal) or Outset(external);
+   .box-sizing: content-box => this is the default value of box-sizing, and that's means he take width and the of the box 
+   plus padding and border
+   .if we want the width and the height to includ the border and the padding we should to chanche from content-box to border-box
+   . *{} that's mean i want to put this property in all the content
+   for exp: *{
+              -webkit-box-sizing: border-box;
+              -moz-box-sizing: border-box;
+              -box-sizing: border-box;
+            }
+   .transition: -duration: the time it will take with moving (s or ms => 1s=1000ms)
+                -delay: the time before start moving (s or ms => 1s=1000ms)
+                -property: default value is all, the more property check the cite: animatable CSS properties
+                -timing-function: ease(default value)  start slowly than fast than slowly, linear moving the same fast,
+                ease-in started slowly than normal, ease-out started normal than slowly, ease-in-out started and finished slowly
+   .transition:  transition-property transition-duration transition-timing-function transition-delay;
+   .!impotant => when we write this in the property, it will be the first imporatnt
+   .margin collapse:-only the vertical margin collapse
+                    -the beggers wins
+                    -margin collapsing just with the elements who does not have anything between
+                    -nesting does not prevent collapsing
+   .Css Variables: -Global Variable: to all the selectore
+                   -Local Variable: just in one selectore
+   .how it work=> global =>:root {
+                            --name: value;
+                            }  
+                            than=> selectore{
+                                prperty: var(variable name, fallback value(if the variable not worked))
+                            }
+   .Flexbox:
+     1-for parent:
+             -display: flex => to start flexible box, inline-flex
+             -flex-direction: row(defaut value), row-reverse(the opposit of row)
+                              column, column-reverse(opposit of colum)
+             -flex-wrap: nowrap(default value), wrap, wrap-reverse(opposit of wrap)
+             -flex-flow: flex-direction flex-wrap;
+             -justify-content: flex-start(default value), flex-end(opposit of flex-start), center, space-between, space-around, space-evenly(space-between + space-around)
+             -align-items: strech(default-value), flex-start, flex-end, center
+              Notice that when the flex direction is a column, justify-content changes to the vertical and align-items to the horizontal.
+             -align-content: strech(default value), center, flext-start, flext-end, space-btween, space-around, space-evenly
+     2-for child:
+             -flex-grow: 0(default value)
+             -flex-shrink: 1(default value)
+             -order: 0(default value)
+             -flex-basis: auto(default value) if we have flex-direction: row => flex-basis will be like the width but
+                                              if we have flex-direction: colums => flex-basis will be like the height
+                          it respect the width 
+             -flex: flex-grow flex-shrink flex-basis; 0 1 auto (default value)
+             -align-self: auto(default value), flex-start, flex-end, center, strech
+   .Filters => its this filters on images, like what we do when we post a image in instgram
+    .filter: grayscale(100%); (white and blakc)
+    .filter: blur(npx); doing a blur
+    .filter: invert(100%); the opposit of the image
+    .search a filter list;
+   .Gradients => the colors
+    .background-image: linear-gradient();
+      [linear-gradient(Direction||Angle, Color stop 1 + width, Color stop 2 + width, ...);]
+      [direction: to right(90deg) || to left(270deg) || to top(0deg) || to bottom(180)]
+   .Caret Color => when we right
+    .caret-color: color;
+   .Pointer Events => the event that happinig in the site like clic
+    .pointer-events: auto(devault value); none;
+   .Grid: 
+     1-parent:
+        -display: Grid | inline Grid
+        -grid-template-columns => Number of culumns in => n1px n2px npx . . .;auto, %,
+          repeat(n or auto-fill(responsiv), width); fraction(nfr) is like the auto
+          minmax(min-width, max-width);
+          we can write for resposive for exp: 
+           grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+           and there is auto-fill and auto-fit (see the deferense is youtube)
+           and we have (CH) it calculate the number of character
+        -grid-template-rows: height1 height2 height3 ....=> numbers of rows height in 
+          [px, %, auto, fraction, repeat(), mix]
+        -row-gap: the space between the rows
+        -column-gap: the space between the columns
+        -gap: row-gap column-gap;
+        -justify-content: like the flexbox;
+        -align-content: like the flexbox;
+        -grid-template-areas: the areas of the elements for exp:
+          grid-template-areas: "logo logo nav nav nav nav nav nav nav nav""the secound row""the third row""..."; we have 2 columns for logo and 8 for nav
+          slectore{
+              grid-area: logo; }
+          selectore-2{
+              grid-area: nav; }
+     2-for child:
+       -grid-column: grid-column-start / grid-column-end; its like a span in table and also we can write like that
+        grid-column: span 3 or 1 / span 3 or 1 / 4; (/) means tell
+       -grid-row: grid-row-start / grid-row-end; the same of grid-column
+       -grid-area: grid-row-start / grid-column-start / grid-row-end / grid-column-end;
+   .2D Transform:
+     -Scale: -scaleX(1)=width
+             -scaleY(1)=height
+             -scale(scaleX, scaleY)
+     -Rotate: deg=> Degrees, rad=> Radians, grad=> Gradians, turn=> turn
+              360deg = 6.28rad = 400grad = 1turn
+     -transform: scale() rotate();
+     -translate: translate(x, y);
+     -skew: skew(x, y); inhiraf.
+     -matrix: syntax =>  
+             transform: matrix( scaleX(), skewY(), skewX(), scaleY(), translateX(), translateY() ); 
+             .class {
+                    matrix(3, 0.2679, 0, 3, 20, 100);
+                    }
+             or
+             transform: translateX() translateY() scaleX() skewY() skewX() scaleY();
+   .transform-origin(al markaz): devault value => 50% 50% 0
+                      2D transform => transform-origin(x,y)
+                      3D transform => transform-origin(x,y,z)
+                        X-Axis: -CSS Units (px, em, rem)
+                                -%
+                                -Keyword (Left=0%, Center=50%, Right=100%)
+                        Y-Axis: -CSS Units (px, em, rem)
+                                -%
+                                -Keyword (Top=0%, Center=50%, Bottom=100%) 
+   .3D Transform: rotate3d[X (0->1), Y(0->1), Z(0->1), Deg];
+                  translate3d(X, Y, Z);
+   .perspective(al mandhor, al masafa baynaka w bayna al 3onsor)
+        put in the parent
+   .perspective-origin: like the transform-origin, and put just in the parents
+        and does not work without perspective
+   .backface-visibility: visibil (d F), hidden .. (al wajh al khalfi)
+   .transform-style: flat(df)(mosaffah), preserve-3d(likay yahfada makanaho fil 3d)
+   .keyFrames => like in the camera when they say for exp 30photo/s to doing a video
+    @keyframes name {
+        from{} to{}
+    }
+    @keyframes change-color {
+        from(0%){ background-color: red; }
+        to(100%){ background-color: blue;}
+    }
+    selectore{
+        animation-name: change-color;
+        animation-duration: 3s;
+        animation-iteration-count: infinite; how much this will work
+        animation-timing-function: like the transition(ease, linear...)
+        animation-direction: reverse; alternate; alternate-reverse;
+        animation-delay: how much we will wate (like transition)
+        animation-fill-mode: forwards(he take the style of the last keyframes); backwards(take the style of the first keyframes); both
+        aniamtion-play-state: running; paused;
+        animation: [name] [duration] [timing-function] [delay] [iteration-count] [direction];
+
+    }
+    .the selectors:
+      - (*) => target all the elements
+      - elements => [p, div, h2...]
+      - element otherelement => div p
+      - class-name
+      - #id-name
+      - .parent .child
+      - .class-one.class-two => together
+      - .class-name div, .class-name p => grouping
+      - element.class-name
+      - .parent > .child => direct child (without propabilities of anather content)
+      - element + other element => [div + p] search where is the p that it is directily next to the div
+      - element ~ other element => [p ~ div] all the div brothers next directly to the p
+      - [attribute]
+      - element[attribute]
+      - [attribute=value]
+      - element[attribute=value] => input[type="submit"]
+      - [attribute~=value] => contains a word
+      - [attribute*=value] => contains a string
+      - [attribute^=value] => start with a string 
+      - :first-child 
+      - :last-child
+      - :first-of-type 
+      - :last-of-type
+      - :only-child
+      - :only-of-type
+      - :not(selectore)
+      - :nth-child(n) => :nth-child(1) = :first-child
+        (even) like 2 4 6 8 10
+        (odd)  like 1 3 5 7 9
+        if there is a quation about nth you can search in nthmuster.com
+      - :nth-last-child()
+      - :nth-of-type()
+      - :root
+      - :checked
+      - :empty
+      - :disabled
+      - :required
+      - :focus
+      - ::selection
+      - ::placeholder
+   . @media condition (print,max-width: ..px, min-width, ...) and (width: , ...) {
+       selectore{
+           property: value;
+       }
+     }
+     we can also do a external file for print for exp so we have to write in the head
+     <link rel="stylesheet" href="css/print.css" media="print" />
+     or 
+     <link rel="stylesheet" href="css/print.css" media="(min-width: 1000px) and (max-width: 1400px)" />
+     or in the style like
+     <style media="print">
+        selectore{
+            property: value;
+        }
+     <style/> 
+     there is for exp: Mobile, Small Screen, Medium Screens, Large Screens ...
+     we have to write this in head
+     <meta name="viewport" content="width=device-width, intial-scale=1.0" />
+   .CSS lobal Values:
+      -inherit (al wiratha)
+      -initial (if you want to see deful value for any elements)
+      -unset: ( idha kana al khasiya torith tosbih bima3na inherit idha kant la tosbeh inintial)
+             -if inherit => inherit
+             -if not => initial
+      -revert (like initial but torji3 al tansi9at ta3 al user agent(like google chrome) la tansi9at al asliya like initial 
+   .   
+*/
+.assign-1-shape-1{
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    padding: 20px;
+    background-color: rgb(137, 43, 226);
+}
+
+.assign-1-shape-2{
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    padding: 20px;
+    background-color: rgb(138, 43, 226, 50%);
+}
+
+.assign-1-shape-3{
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    padding: 20px;
+    background-color: rgb(138, 43, 226, 10%)
+}
+
+.assign-2-shape-1{
+    width: 400px;
+    height: 400px;
+    background-image: url('https://elzero.org/wp-content/uploads/2021/02/css-assignment-5-8.png');
+    background-repeat: no-repeat;
+}
+
+.assign-2-shape-2{
+    width: 400px;
+    height: 400px;
+    background-image: url('https://elzero.org/wp-content/uploads/2021/02/css-assignment-5-8.png');
+    background-repeat: repeat-y;
+}
+
+.assign-2-shape-3{
+    width: 400px;
+    height: 400px;
+    background-image: url('https://elzero.org/wp-content/uploads/2021/02/css-assignment-5-8.png');
+    background-repeat: repeat-x;
+}
+
+.assign-2-shape-4{
+    width: 400px;
+    height: 400px;
+    background-image: url('https://elzero.org/wp-content/uploads/2021/02/css-assignment-5-8.png');
+    background-repeat: repeat;
+}
+
+.assign-3-shape-1{
+    width: 400px;
+    height: 400px;
+    background-image: url('https://elzero.org/wp-content/uploads/2021/02/css-assignment-5-8.png');
+    background-repeat: no-repeat;
+}
+
+.assign-3-shape-2{
+    width: 400px;
+    height: 400px;
+    background-image: url('https://elzero.org/wp-content/uploads/2021/02/css-assignment-5-8.png');
+    background-repeat: repeat-y;
+    background-position: right;
+}
+
+.assign-3-shape-3{
+    width: 400px;
+    height: 400px;
+    background-image: url('https://elzero.org/wp-content/uploads/2021/02/css-assignment-5-8.png');
+    background-repeat: repeat-x;
+    background-position: bottom;
+}
+
+.assign-3-shape-4{
+    width: 400px;
+    height: 400px;
+    background-image: url('https://elzero.org/wp-content/uploads/2021/02/css-assignment-5-8.png');
+    background-repeat: repeat;
+}
+
+.assign-4-shape-1{
+    width: 400px;
+    height: 400px;
+    background-image: url('https://elzero.org/wp-content/uploads/2021/02/css-assignment-5-8.png');
+    background-repeat: no-repeat;
+    background-size: 80%;
+    background-color: rgb(192, 164, 164);
+}
+
+.assign-4-shape-2{
+    width: 400px;
+    height: 400px;
+    background-image: url('https://elzero.org/wp-content/uploads/2021/02/css-assignment-5-8.png');
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 80% 100%;
+    background-color: rgb(192, 164, 164);
+}
+
+.assign-4-shape-3{
+    width: 400px;
+    height: 400px;
+    background-image: url('https://elzero.org/wp-content/uploads/2021/02/css-assignment-5-8.png');
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 100% 80%;
+    background-color: rgb(192, 164, 164);
+}
+
+.assign-4-shape-4{
+    width: 400px;
+    height: 400px;
+    background-image: url('https://elzero.org/wp-content/uploads/2021/02/css-assignment-5-8.png');
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-color: rgb(192, 164, 164);
+}
+
+.shape-1-2-3{
+    display: inline-block;
+}
+
+.shape-1{
+    display: inline-block;
+    border: 5px solid red;
+    padding: 20px 50px;
+    margin: 5px;
+    outline: 5px solid black;
+    font-size: 50px;
+}
+
+.shape-2{
+    display: inline-block;
+    border: 5px solid;
+    border-color: blue green;
+    padding: 20px 50px;
+    margin: 5px;
+    outline: 5px solid black;
+    font-size: 50px;
+    
+}
+
+.shape-3{
+    display: inline-block;
+    border: 5px dashed;
+    border-color: red green blue yellow;
+    padding: 20px 50px;
+    margin: 5px;
+    outline: 5px solid black;
+    font-size: 50px;
+}
+
+.important-note-1{
+    background-color: #00000052;
+    width: 400px;
+    border-left: 5px solid rgb(196, 72, 88);
+    padding: 10px;
+    margin: 50px;
+    outline: 10px solid #00000052;
+}
+
+.important-note-2{
+    visibility: hidden;
+    background-color: #00000052;
+    width: 400px;
+    border-left: 5px solid rgb(190, 91, 91);
+    padding: 10px;
+    margin: 50px;
+    outline: 10px solid #00000052;
+}
+
+.important-note-3{
+    background-color: #00000052;
+    width: 400px;
+    border-left: 5px solid rgb(28, 110, 104);
+    padding: 10px;
+    margin: 50px;
+    outline: 10px solid #00000052;
+}
+
+.one, .two, .three, .four{
+    max-width: 400px;
+    height: 20px;
+    width: fit-content;
+    margin: 10px;
+    padding: 10px;
+    background: #952727;
+    overflow: auto;
+}
+
+.parent .child .title{
+    color: red;
+}
+
+.parent .title{
+    color: blue;
+}
+
+
+div p, .title{
+    color: green;
+}
+
+
+.elzero{
+    border: solid 1px black;
+    width: 70%;
+    margin: 10% 15%;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-size: 100px;
+    text-transform: capitalize;
+    text-shadow: 1px 1px 0 #b33128, 2px 2px 0 #3f88d8, 3px 3px 0 #8040bf;
+}
+
+.one-1{
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 50px;
+}
+
+.two-1{
+    text-transform: capitalize;
+    text-align: center;
+    font-size: 50px;
+}
+
+.three-1{
+    text-transform: lowercase;
+    text-align: center;
+    font-size: 50px;
+}
+
+.divv-0{
+    border: solid 1px;
+    display: inline-block;
+}
+
+.divv-1{
+    width: 400px;
+    background-color: #eeeeee;
+    margin: 15px;
+    padding: 15px;
+}
+
+.divv-2{
+    width: 400px;
+    background-color: #eeeeee;
+    margin: 15px;
+    padding: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.divv-3{
+    width: 400px;
+    background-color: #eeeeee;
+    margin: 15px;
+    padding: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.a-1{
+    text-transform: capitalize;
+    text-decoration: none;
+    color: white;
+    background-color: #009688;
+    border-bottom: 15px solid #00514a;
+    display: inline-block;
+    text-align: center;
+    font-size: 40px;
+    font-family: "cairo", sans-serif;
+    padding: 15px;
+    margin: 5% 40% ;
+}
+
+.dp-1{
+    border: solid 5px #ff5722;
+    text-align: center;
+    width: 70%;
+    padding: 30px;
+    margin: 5% 15%;
+    font-size: 300%;
+}
+
+.dpp-1{
+    color: black;
+    border: inherit;
+    padding: inherit;
+    background-color: #dddddd;
+    margin: 0;
+}
+
+.elzero-2{
+    border: 1px solid #009688;
+    text-align: center;
+    background: #dddddd;
+    text-transform: capitalize;
+    font-size: 300%;
+    width: 70%;
+    padding: 1%;
+    margin: 1% 15%;
+}
+
+.elzero-2-1{
+    font-family: "open sans" , sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    margin: inherit;
+    padding: inherit; 
+}
+
+.elzero-2-2{
+    font-family: "cairo" , sans-serif;
+    font-weight: 700;
+    margin: inherit;
+    padding: inherit;
+}
+
+.elzero-2-3{
+    font-family: "Jomhuria" , sans-serif;
+    font-weight: 400;
+    font-variant: small-caps;
+    text-transform: none;
+    margin: inherit;
+    padding: inherit;
+}
+
+.float-lesson{
+    width: 800px;
+    background-color: #eee;
+    margin-left: calc((100% - 800px)/2);
+    font-size: 20px;
+    overflow: hidden;
+}
+
+.clear{
+    clear: both;
+}
+
+.full-width{
+    text-transform: capitalize;
+    background-color: #ddd;
+    text-align: center;
+    margin: 15px;
+    height: calc((100% - 75px)/4);
+}
+
+.one-three{
+    background-color: #ddd;
+    height: calc((100% - 75px)/4);
+}
+
+.one-three-1{
+    color: black;
+    text-align: center;
+    float: left;
+    width: calc((100% - 60px)/3);
+    background-color: #ddd;
+    margin-left: 15px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.one-two{
+    background-color: #ddd;
+    height: calc((100% - 75px)/4);
+}
+
+.one-two-1{
+    color: black;
+    text-align: center;
+    float: left;
+    width: calc((100% - 45px)/2);
+    background-color: #ddd;
+    margin-left: 15px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.one-four{
+    background-color: #ddd;
+    height: calc((100% - 75px)/4);
+}
+
+.one-four-1{
+    color: black;
+    text-align: center;
+    float: left;
+    width: calc((100% - 75px)/4);
+    background-color: #ddd;
+    margin-left: 15px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.relative{
+    position: relative;
+    width: 400px;
+    height: 400px;
+}
+
+.green, .red, .blue, .black{
+    width: 100px;
+    height: 100px;
+}
+
+.green{
+    background-color: #009688;
+    z-index: 3;
+    position: absolute;
+    margin: 40px 0 0 40px;
+}
+
+.red{
+    background-color: #f44336;
+    position: absolute;
+    z-index: 4;
+    margin: 60px 0 0 60px;
+}
+
+.blue{
+    background-color: #03a9f4;
+    position: absolute;
+    margin: 20px 0 0 20px;
+    z-index: 2;
+}
+
+.black{
+    background-color: #333333;
+    position: absolute;
+    margin: 40px 0 0 20px;
+    z-index: 1;
+}
+
+.lorem{
+    width: 400px;
+    margin-left: calc((100% - 400px)/2);
+    border: 2px solid;
+    border-top-color: #f55246;
+    border-bottom-color: #f55246;
+    border-right-color: #36a0f4;
+    border-left-color: #36a0f4;
+    background-color: #ddd;
+    padding: 20px;
+    font-weight: 900;
+    position: relative;
+}
+
+.top-left{
+    background-color: #36a0f4;
+    color: white;
+    border-right: 1px solid #f55246;
+    padding: 5px 10px;
+    position: absolute;
+    margin-left: -415px;
+    margin-top: -90px;
+}
+
+.bottom-left{
+    background-color: #36a0f4;
+    color: white;
+    border-right: 1px solid #f55246;
+    padding: 5px 10px;
+    position: absolute;
+    margin-top: 25px;
+    margin-left: -415px;
+}
+
+.top-right{
+    background-color: #36a0f4;
+    color: white;
+    border-left: 1px solid #f55246;
+    padding: 5px 10px;
+    position: absolute;
+    margin-top: -90px;
+    margin-left: 30px;
+}
+
+.bottom-right{
+    background-color: #36a0f4;
+    color: white;
+    border-left: 1px solid #f55246;
+    padding: 5px 10px;
+    position: absolute;
+    margin-top: 25px;
+    margin-left: 30px;
+}
+
+.ul-style{
+    width: 400px;
+    margin-left: calc((100% - 400px)/2);
+    border: 1px solid black;
+    padding-left: 0;
+}
+
+.li-parent{
+    background-color: #ddd;
+    list-style: none;
+    padding: 10px;
+    margin: 10px;
+}
+
+.ol-style-1{
+    list-style-type: decimal;
+}
+
+.ol-style-2{
+    list-style-type: upper-roman;
+}
+
+.ol-style-3{
+    padding-left: 0;
+    list-style-position: inside;
+}
+
+.li-child-1{
+    background-color: white;
+    color: black;
+    margin: 3px;
+}
+
+.li-child-2{
+    margin: 3px 0;
+    background-color: white;
+    color: black;
+    padding-left: 10px;
+}
+
+.table-0{
+    width: 750px;
+    text-transform: capitalize;
+    border: 1px solid black;
+    margin-left: calc((100% - 750px)/2);
+    text-align: center;
+}
+
+.caption-0{
+    font-weight: bolder;
+    margin: 10px;
+}
+
+.table-1{
+    width: 700px;
+    margin-left: calc((100% - 700px)/2);
+    border-bottom: 3px solid #3dafa4;
+    margin-bottom: 10px;
+}
+
+.thead-1{
+    background-color: #404040;
+    color: white;
+    font-weight: bolder;
+}
+
+.tbody-0{
+    background-color: #ddd;
+}
+
+.button-0{
+    background-color: #03a9f4;
+    color: white;
+    border: none;
+    padding: 4px;
+}
+
+.button-1{
+    background-color: #e91e63;
+    color: white;
+    border: none;
+    padding: 4px;
+}
+
+.thead-2{
+    padding: 10px;;
+}
+
+.one-three-1-0{
+    width: 400px;
+    border: 1px solid black;
+    margin-left: calc((100% - 400px)/2);
+    background-color: white;
+    text-align: center;
+}
+
+.one-three-one{
+    width: 300px;
+    height: 60px;
+    background-color: #ddd;
+    font-weight: bold;
+    margin-left: calc((100% - 300px)/2);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    padding-top: 20px;
+}
+
+.pseudo-one-three:empty{
+    background-color: red;
+    width: 300px;
+    height: 60px;
+    margin-left: calc((100% - 300px)/2);
+}
+
+.hello-1{
+    font-weight: bold;
+    margin-left: calc((100% - 291.562px)/2);
+    background-color: #ddd;
+    text-align: center;
+    padding: 10px;
+    display: inline-block;
+    width: 291.562px;
+    position:relative;
+}
+
+.hello-1::first-letter{
+    background-color: rgba(255, 0, 0, 0.705);
+    position:absolute;
+    padding: 3px 5px;
+    margin-left: -50px;
+}
+
+.ossama{
+    background-color: #ddd;
+    font-weight: 600;
+    width: 340px;
+    margin-left: calc((100% - 340px)/2);
+    position: relative;
+    padding: 10px;
+    border-left: 5px solid #e91e63;
+}
+
+.ossama::before{
+    content:attr(data-person);
+    position:absolute;
+    margin-left: -100px;
+    background: #ddd;
+    padding: 7px;
+    text-align: center;
+    margin-top: -8px;
+    width: 50px;
+}
+
+.ossama::after{
+    content: "";
+    border-right: 10px solid #e91e63;
+    border-left: 10px solid transparent;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    position: absolute;
+    margin-left: -357px;
+}
+
+.ossama-1{
+    background-color: #ddd;
+    font-weight: 600;
+    width: 340px;
+    margin-left: calc((100% - 340px)/2);
+    position: relative;
+    padding: 10px;
+    border-left: 5px solid #e91e63;
+}
+
+.ossama-1::before{
+    content:attr(data-person);
+    position:absolute;
+    margin-left: -100px;
+    background: #ddd;
+    padding: 7px;
+    text-align: center;
+    margin-top: -8px;
+    width: 50px;
+}
+
+.ossama-1::after{
+    content: "";
+    border-right: 10px solid #e91e63;
+    border-left: 10px solid transparent;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    position: absolute;
+    margin-left: -369px;
+}
+
+.p-ossama{
+    background-color: #efefef;
+    font-weight: 600;
+    padding: 10px;
+    margin: 10px 80px;
+    width: 300px;
+    border-right: 4px solid #f44336;
+    position: relative;
+    counter-increment: p-counter;
+}
+
+.p-ossama::before{
+    content: counter(p-counter);
+    background-color: #f44336;
+    color: white;
+    width: 40px;
+    height: 100%;
+    position: absolute;
+    text-align: center;
+    margin-top: -10px;
+    margin-left: -50px;
+    box-sizing: border-box;
+    padding-top: 9.5px;
+}
+
+.circle{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid black;
+    display: inline-block;
+    margin: 50px;
+    box-shadow: 5px 5px 0 0 #2196f3, -5px -5px 0 0 #e91e63;
+    counter-increment: circle-counter;
+    position:relative;
+}
+
+.circle::before{
+    content: counter(circle-counter);
+    position: absolute;
+    color: white;
+    background-color: black;
+    width:30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 5px;
+    top: -13px;
+    left: 34px;
+}
+
+.circle::after{
+    content: "Element";
+    position: absolute;
+    font-weight: 900;
+    top: 40px;
+    left: 20px
+}
+
+.circle-parents{
+    width: 300px;
+    height: 250px;
+    border: 2px solid black;
+    margin-left: calc((100% - 300px)/2);
+}
+
+.white-circle{
+    width: 100px;
+    height: 100px;
+    margin-left: calc((100% - 100px)/2);
+    margin-top: 75px;
+    box-shadow: inset 0px 0px 20px 2px #767676;
+    border-top-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    border-top-left-radius: 10% 30%;
+    border-bottom-right-radius: 10% 30%;
+}
+
+hr{
+    margin: 50px;
+}
+
+.tarif{
+    width: 550px;
+    height: 350px;
+    box-sizing: border-box;
+    border: 3px solid #6c6c6c;
+    padding: 20px 0;
+    margin-left: calc((100% - 550px)/2);
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+.tarif-1{
+    width: 240px;
+    display: inline-block;
+    background-color: rgb(238, 238, 238);
+    height: 307px;
+    margin: 0 13.5px;
+    position: relative;
+}
+
+.tarif-1-1::after{
+    content: "basic";
+    color: white;
+    background-color: #03a9f4;
+    width: 80%;
+    border-radius: 10px;
+    position: absolute;
+    text-align: center;
+    margin: 10%;
+    padding: 10px 0;
+}
+
+.tarif-1-2::after{
+    content: "free";
+    color: rgb(0, 0, 0);
+    background-color: #ddd;
+    width: 192px;
+    height: 192px;
+    border-radius: 50%;
+    position: absolute;
+    text-align: center;
+    margin: 40% 10%;
+    box-sizing: border-box;
+    padding-top: 64px;
+    font-size: 40px;
+}
+
+.or{
+    display: inline-block;
+    background-color: #03a9f4;
+    width: 2px;
+    height: 307px;
+    position: relative;
+}
+
+.or::after{
+    content: "or";
+    position: absolute;
+    color: white;
+    background-color: #03a9f4;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 5px;
+    top: 150px;
+    left: -14px;
+}
+
+.tarif-2{
+    width: 240px;
+    display: inline-block;
+    background-color: rgb(238, 238, 238);
+    height: 307px;
+    margin: 0 13.5px;
+    position: relative;
+}
+
+.tarif-2-1::after{
+    content: "pro";
+    color: white;
+    background-color: #03a9f4;
+    width: 80%;
+    border-radius: 10px;
+    position: absolute;
+    text-align: center;
+    margin: 10%;
+    padding: 10px 0;
+}
+
+.tarif-2-2::after{
+    content: "30$";
+    color: rgb(0, 0, 0);
+    background-color: #ddd;
+    width: 192px;
+    height: 192px;
+    border-radius: 50%;
+    position: absolute;
+    text-align: center;
+    margin: 40% 10%;
+    box-sizing: border-box;
+    padding-top: 64px;
+    font-size: 40px;
+}
+
+.transition{
+    width: 400px;
+    height: 300px;
+    text-transform: capitalize;
+    text-align: center;
+    font-weight: 600;
+    font-size: 16px;
+    border: 2px solid black;
+    margin-left: calc((100% - 400px)/2);
+    box-sizing: border-box;
+}
+
+.go-up{
+    background-color: rgb(242, 242, 244);
+    margin: 30px;
+    height: 236px;
+    box-sizing: border-box;
+    position: relative;
+    padding-top: 30px;
+    transition-duration: 0.5s, 0s;
+    transition-delay: 0s, 0.5s;
+    transition-property: margin-top, padding-top;
+    transition-timing-function: ease-in-out;
+}
+
+.go-up::before{
+    content: "will go up on hover in half second";
+    position: absolute;
+    width: 300px;
+    left: 18px;
+    top: 23px;
+}
+
+.go-up:hover{
+    margin-top: 10px;
+    padding-top: 50px;
+}
+
+.go-down{
+    background-color: rgb(222, 222, 220);
+    height: 67px;
+    margin: 30px;
+    padding-top: 23px;
+    box-sizing: border-box;
+}
+
+/* transition: -duration: the time it will take with moving (s or ms => 1s=1000ms)
+                -delay: the time before start moving (s or ms => 1s=1000ms)
+                -property: default value is all, the more property check the cite: animatable CSS properties
+                -timing-function: ease(default value)  start slowly than fast than slowly, linear moving the same fast,
+                ease-in started slowly than normal, ease-out started normal than slowly, ease-in-out started and finished slowly
+   .transition:  transition-property transition-duration transition-timing-function transition-delay; */
+
+.hello-div{
+    width: 400px !important;
+    text-align: center;
+    background-color: #eee !important;
+    font-size: 20px !important;
+    color:rgb(0, 0, 0) !important;
+    margin-left: calc((100% - 400px)/2) !important;
+    border: none !important;
+    position: relative;
+}
+
+.hello-div::first-line{
+    visibility: hidden;
+}
+
+.hello-div::before{
+    content: "elzero";
+    position: absolute;
+    font-size: 20px !important;
+    color:rgb(0, 0, 0) !important;
+    text-transform: capitalize;
+}
+
+:root {
+    --mainColor: #009688;
+    --mainPadding: 10px;
+}
+
+.element-0{
+    color: var(--mainColor, #f00);
+    padding: var(--mainPadding, 10px);
+    border: 2px solid;
+    border-color: var(--mainColor,#000);
+    margin: 10px;
+    width: 400px;
+}
+
+.elzero-flex{
+    width: 100px;
+    height: 100px;
+    color:  #ff5722;
+    background-color: #efefef;
+    border-radius: 50%;
+    box-shadow: -5px 0px 0 0 #03a9f4, 5px 0px 0 0 #ff5722;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: calc((100% - 100px)/2);
+}
+
+.parent-number{
+    width: 600px;
+    height: 300px;
+    display: flex;
+    justify-content: space-around;
+    background-color: #efefef;
+    margin: auto;
+    flex-wrap: wrap;
+    align-content: space-between;
+}
+
+.parent-number-1{
+    background-color: #f44336;
+    color: white;
+    width: calc(88% / 3);
+    text-align: center;
+    padding: 5px;
+    box-sizing: border-box;
+    margin: 10px;
+}
+
+.parent-number-0{
+    width: 600px;
+    height: 300px;
+    background-color: #efefef;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.one-0, .two-0, .three-0, .four-0, .five-0, .six-0{
+    background-color: #607d8b;
+    color: white;
+    text-align: center;
+    width: calc(88% / 3);
+    margin: 10px;
+    box-sizing: border-box;
+    padding-top: 9%;
+}
+
+.one-0{
+    order: 6;
+    height: 14%;
+    padding: 2%;
+    align-self: flex-end;
+}
+
+.two-0{
+    order: 5;
+    margin-top: 0;
+}
+
+.three-0{
+    order: 2;
+    height: 14%;
+    padding: 2%;
+    align-self: flex-start;
+}
+
+.four-0{
+    order: 3;
+    margin-bottom: 0;
+}
+
+.five-0{
+    order: 4;
+    margin-top: 0;
+}
+
+.six-0{
+    order: 1;
+    margin-bottom: 0;
+}
+
+.parent-0{
+    width: 600px;
+    height: 300px;
+    background-color: #efefef;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+.one-00, .two-00, .three-00{
+    background-color: #009688;
+    color: white;
+    text-align: center;
+    box-sizing: border-box;
+    margin: 2%;
+    height: calc(88% / 3);
+    width: 5%;
+    padding-top: 5%;
+}
+
+.two-00{
+    align-self: flex-start;
+    width: 48%;
+    padding-top: 5%;
+}
+
+.parent-01{
+    width: 600px;
+    height: 300px;
+    background-color: #efefef;
+    box-sizing: border-box;
+    margin:auto;
+    padding: 1%;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.one-01, .two-01, .three-01, .four-01{
+    width: calc(68% /4 );
+    color: #fff;
+    text-align: center;
+    height: 49%;
+    padding-top: 10%;
+    box-sizing: border-box;
+}
+
+.one-01{
+    background-color: #ff9800;
+    order: 2;
+    align-self: flex-start;
+}
+
+.two-01{
+    background-color: #8bc34a;
+    order: 3;
+    align-self: flex-end;
+}
+
+.three-01{
+    background-color: #795548;
+    order: 4;
+    align-self: flex-start;
+}
+
+.four-01{
+    background-color: #673ab7;
+    order: 1;
+    align-self: flex-end;
+}
+
+:root {
+    --mainColor-0: #000;
+    --mainBackground: #ddd;
+}
+.page-0{
+    background-color: #eee;
+    width: 600px;
+    height: 300px;
+    padding: 1%;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    margin: auto;
+}
+    
+.header-0{
+    color: var(--mainColor-0, black);
+    box-sizing: border-box;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+    align-self: flex-start;
+}
+                 
+.logo-0{
+    align-self: center;
+    text-align: center;
+    background-color: var(--mainBackground, #ddd); 
+    width: 13%;
+    padding: 1%;
+    box-sizing: border-box;
+}
+        
+.links-0{
+    list-style: none;
+    align-self: center;
+    background-color: var(--mainBackground, #ddd);
+    width: 86%;
+    text-align: end;
+    padding: 1%;
+    box-sizing: border-box;
+}
+    
+.link-01{
+    display: inline;
+    margin: 0 2px;
+}
+.main-area-0{
+    color: var(--mainColor-0, black);
+    box-sizing: border-box;
+    width: 100%;
+    height: 76%;
+    display: flex;
+    justify-content: space-between;
+    align-self: baseline;
+}
+    
+.content-0{
+    background-color: var(--mainBackground, #ddd);
+    width: 66%;
+    padding: 1%;
+    box-sizing: border-box;
+}
+    
+    
+.sidebar-0{
+    background-color: var(--mainBackground, #ddd);
+    width: 33%;
+    padding: 1%;
+    box-sizing: border-box;
+}
+    
+.footer-0{
+    color: var(--mainColor-0, black);
+    background-color: var(--mainBackground, #ddd);
+    width: 100%;
+    box-sizing: border-box;
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+    align-self: flex-end;
+    padding: 1%;
+}
+
+.g-parent{
+    width: 800px;
+    height: 300px;
+    margin: auto;
+    position: relative;
+}
+.elzero-g{
+    width: 600px;
+    height: 147px;
+    background-color: #eee;
+    text-transform: capitalize;
+    color:#000;
+    padding: 50px;
+    left: calc((100% - 600px)/2);
+    top: calc((100% - 147px)/2);
+    text-align: center;
+    font-size: 40px;
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 2;
+}
+
+.elzero-g::first-letter{
+    color: #f44336;
+}
+
+.g-parent::before{
+    content: "";
+    width: 650px;
+    height: 197px;
+    left: calc((100% - 650px)/2);
+    top: calc((100% - 197px)/2);
+    box-sizing: border-box;
+    background-image: linear-gradient(to right,
+      #f44336 20%,
+      #2196f3 20%, 
+      #2196f3 40%,
+      #4caf50 40%,
+      #4caf50 60%,
+      #e91e63 60%,
+      #e91e63 80%,
+      #673ab7 80%)
+    ;
+    position: absolute;
+    z-index: 1;
+}
+
+.gg-input{
+    width: 620px;
+    box-sizing: border-box;
+    border: 1px solid black;
+    margin: auto;
+    height: 240px;
+    position: relative;
+}
+
+.gg-input-1, .gg-input-2, .gg-input-3{
+    background-color: #ddd;
+    width: 600px;
+    margin: 10px;
+    box-sizing: border-box;
+    padding: 5px;
+    height: 60px;
+    font-size: 28px;
+    border: none;
+    outline: none;
+    position: relative;
+    caret-color: #f44336;
+}
+
+.gg-input::before{
+    content: "";
+    position: absolute;
+    width: 600px;
+    height: 4px;
+    left: 10px;
+    top: 70px;
+    background-image: linear-gradient(to right, #f44336 50%, #009688 50%);
+}
+
+.gg-input::after{
+    content: "";
+    position: absolute;
+    width: 600px;
+    height: 4px;
+    left: 10px;
+    bottom: 86px;
+    background-image: linear-gradient(to right, #f44336 50%, #009688 50%);
+}
+
+.gg-empty:empty{
+    position: absolute;
+    width: 600px;
+    height: 4px;
+    left: 10px;
+    bottom: 6px;
+    background-image: linear-gradient(to right, #f44336 50%, #009688 50%);
+}
+
+.grid {
+    background-color: #ddd;
+    padding: 20px;
+    width: 800px;
+    height: 400px;
+    margin: auto;
+    display: grid;
+    grid-template: 15% 80% / 30% 30% 30%;
+    gap: 5%;
+}
+
+.grid div{
+    color: white;
+    background-color: #607d8b;
+    font-family: sans-serif;
+    text-transform: capitalize;
+    position: relative;
+    font-weight: 600;
+}
+
+.grid-1::before{
+    content: "element 1";
+    position: absolute;
+    box-sizing: border-box;
+    right: 37%;
+    top: 34%;
+}
+
+.grid-2::before{
+    content: "element 2";
+    position: absolute;
+    box-sizing: border-box;
+    right: 37%;
+    top: 34%;
+}
+
+.grid-3::before{
+    content: "element 3";
+    position: absolute;
+    box-sizing: border-box;
+    right: 37%;
+    top: 34%;
+}
+
+.grid-4::before{
+    content: "element 4";
+    position: absolute;
+    box-sizing: border-box;
+    right: 37%;
+    top: 46%;
+}
+
+.grid-5::before{
+    content: "element 5";
+    position: absolute;
+    box-sizing: border-box;
+    right: 37%;
+    top: 46%;
+}
+
+.grid-6::before{
+    content: "element 6";
+    position: absolute;
+    box-sizing: border-box;
+    right: 37%;
+    top: 46%;
+}
+
+.layout{
+    width: 800px;
+    height: 400px;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0 auto;
+    font-family: sans-serif;
+    font-weight: 600;
+    text-transform: capitalize;
+    color: #fff;
+    display: grid;
+    grid-template: 10% 80% 10% / 80% 20%;
+    grid-template-areas: "header header""section aside""footer footer";
+}
+
+.layout header{
+    grid-area: header;
+    background-color: #03a9f4;
+    position: relative;
+}
+
+.layout header::before{
+    content: "header";
+    position: absolute;
+    top: 17%;
+    left: 2%;
+}
+
+.layout section{
+    grid-area: section;
+    background-color: #ff5722;
+    position: relative;
+}
+
+.layout section::before{
+    content: "section";
+    position: absolute;
+    top: 3%;
+    left: 2.5%;
+}
+
+.layout aside{
+    grid-area: aside;
+    background-color: #607d8b;
+    position: relative;
+}
+
+.layout aside::before{
+    content: "aside";
+    position: absolute;
+    top: 3%;
+    left: 9%;
+}
+
+.layout footer{
+    grid-area: footer;
+    background-color: #009688;
+    position: relative;
+}
+
+.layout footer::before{
+    content: "footer";
+    position: absolute;
+    top: 17%;
+    left: 2%;
+}
+
+.grid-0 {
+    background-color: #ddd;
+    padding: 20px;
+    width: 800px;
+    height: 400px;
+    margin: auto;
+    display: grid;
+    grid-template: 1fr auto / auto 1fr 1fr auto;
+    gap: 20px;
+}
+
+.grid-0 div{
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.grid-0-1{
+    padding-top: 45%;
+}
+
+.grid-0-2{
+    padding-top: 161px;
+}
+
+.grid-00 {
+    background-color: #ddd;
+    padding: 20px;
+    width: 800px;
+    height: 400px;
+    margin: auto;
+    display: grid;
+    grid-template: repeat(6, 1fr) / repeat(3, 1fr);
+    gap: 20px;
+}
+
+.one-grid, .two-grid, .three-grid, .four-grid,
+.five-grid, .six-grid, .seven-grid, .eight-grid{
+    background-color: #2196f3;
+    color: #fff;
+    font-weight: 600;
+    text-align: center;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.one-grid{
+    grid-area: 6 / 1 / 7 / 4;
+}
+
+.two-grid{
+    grid-area: 2 / 1 / 3 / 3;
+}
+
+.five-grid{
+    grid-area: 3 / 2 / 6 / 4;
+}
+
+.eight-grid{
+    grid-area: 1 / 1 / 2 / 4;
+}
+
+.grid-01 {
+    background-color: #ddd;
+    padding: 20px;
+    width: 800px;
+    height: 400px;
+    margin: auto;
+    display: grid;
+    grid-template: auto auto / 1fr 1fr;
+    gap: 20px;
+    align-content: space-between;
+}
+
+.grid-01 div{
+    background-color: #e91e63;
+    color: #fff;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chalenge-1{
+    background-color: #ddd;
+    padding: 50px;
+    width: 800px;
+    height: 1200px;
+    margin: auto;
+    font-family: sans-serif;
+    display: grid;
+    grid-template: repeat(7, 1fr) / repeat(4, 1fr);
+    gap: 5px;
+}
+
+.chalenge-1 div{
+    background-color: #fff;
+    padding: 20px;
+    overflow: hidden;
+    border-bottom: 2px solid #fe4307;
+}
+
+.chalenge-1 h2{
+    font-weight: 600;
+    font-size: 15px;
+    margin: 0;
+}
+
+.chalenge-1 h3{
+    font-weight: 600;
+    font-size: 12px;
+    margin: 6px 0;
+    color: #c1c1c1 !important;
+}
+
+.chalenge-1 p{
+    font-size: 13px;
+    color: #000;
+    margin: 0;
+}
+
+.chalenge-1 span{
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.ossama-mohamed{
+    grid-area: 1 / 1 / 3 / 3;
+    position: relative;
+}
+
+.ossama-mohamed::after{
+    content: "";
+    position: absolute;
+    background-color: #c1c1c1;
+    width: 7px;
+    height: 15px;
+    border-bottom-left-radius: 88%;
+    border-bottom-right-radius: 452%;
+    border-top-left-radius: 178%;
+    left: 93%;
+    bottom: 4%;
+}
+
+.ossama-mohamed::before{
+    content: "";
+    position: absolute;
+    background-color: #c1c1c1;
+    width: 7px;
+    height: 15px;
+    border-bottom-left-radius: 88%;
+    border-bottom-right-radius: 452%;
+    border-top-left-radius: 178%;
+    left: 91%;
+    top: 90%;
+}
+
+.ahmed-sayed{
+    grid-area: 1 / 3 / 3 / 4;
+    position: relative;
+}
+
+.ahmed-sayed::after{
+    content: "";
+    position: absolute;
+    background-color: #c1c1c1;
+    width: 7px;
+    height: 15px;
+    border-bottom-left-radius: 88%;
+    border-bottom-right-radius: 452%;
+    border-top-left-radius: 178%;
+    left: 93%;
+    bottom: 4%;
+}
+
+.ahmed-sayed::before{
+    content: "";
+    position: absolute;
+    background-color: #c1c1c1;
+    width: 7px;
+    height: 15px;
+    border-bottom-left-radius: 88%;
+    border-bottom-right-radius: 452%;
+    border-top-left-radius: 178%;
+    left: 89%;
+    top: 90%;
+}
+
+.shady-nabil{
+    grid-area: 1 / 4 / 7 / 5;
+    background-color: #000 !important;
+    color: white !important;
+    position: relative;
+}
+
+.shady-nabil p{
+    color: #fff !important;
+}
+
+.shady-nabil::after{
+    content: "";
+    position: absolute;
+    background-color: #c1c1c1;
+    width: 7px;
+    height: 15px;
+    border-bottom-left-radius: 88%;
+    border-bottom-right-radius: 452%;
+    border-top-left-radius: 178%;
+    left: 91%;
+    bottom: 1%;
+}
+
+.shady-nabil::before{
+    content: "";
+    position: absolute;
+    background-color: #c1c1c1;
+    width: 7px;
+    height: 15px;
+    border-bottom-left-radius: 88%;
+    border-bottom-right-radius: 452%;
+    border-top-left-radius: 178%;
+    left: 86%;
+    top: 97%;
+}
+
+.mohamed-ibrahim{
+    grid-area: 3 / 1 / 7 / 2;
+    position: relative;
+}
+
+.mohamed-ibrahim::after{
+    content: "";
+    position: absolute;
+    background-color: #c1c1c1;
+    width: 7px;
+    height: 15px;
+    border-bottom-left-radius: 88%;
+    border-bottom-right-radius: 452%;
+    border-top-left-radius: 178%;
+    left: 92%;
+    bottom: 2%;
+}
+
+.mohamed-ibrahim::before{
+    content: "";
+    position: absolute;
+    background-color: #c1c1c1;
+    width: 7px;
+    height: 15px;
+    border-bottom-left-radius: 88%;
+    border-bottom-right-radius: 452%;
+    border-top-left-radius: 178%;
+    left: 88%;
+    top: 95%;
+}
+
+.mahmoud-mohamed{
+    grid-area: 3 / 2 / 5 / 4;
+    background-color: #000 !important;
+    color: white !important;
+    position: relative;
+}
+
+.mahmoud-mohamed p{
+    color: #fff !important;
+}
+
+.mahmoud-mohamed::after{
+    content: "";
+    position: absolute;
+    background-color: #c1c1c1;
+    width: 7px;
+    height: 15px;
+    border-bottom-left-radius: 88%;
+    border-bottom-right-radius: 452%;
+    border-top-left-radius: 178%;
+    left: 93%;
+    bottom: 4%;
+}
+
+.mahmoud-mohamed::before{
+    content: "";
+    position: absolute;
+    background-color: #c1c1c1;
+    width: 7px;
+    height: 15px;
+    border-bottom-left-radius: 88%;
+    border-bottom-right-radius: 452%;
+    border-top-left-radius: 178%;
+    left: 91%;
+    top: 90%;
+}
+
+.ezz-eldin{
+    grid-area: 5 / 2 / 7 / 4;
+    position: relative;
+}
+
+.ezz-eldin::after{
+    content: "";
+    position: absolute;
+    background-color: #c1c1c1;
+    width: 7px;
+    height: 15px;
+    border-bottom-left-radius: 88%;
+    border-bottom-right-radius: 452%;
+    border-top-left-radius: 178%;
+    left: 93%;
+    bottom: 4%;
+}
+
+.ezz-eldin::before{
+    content: "";
+    position: absolute;
+    background-color: #c1c1c1;
+    width: 7px;
+    height: 15px;
+    border-bottom-left-radius: 88%;
+    border-bottom-right-radius: 452%;
+    border-top-left-radius: 178%;
+    left: 91%;
+    top: 90%;
+}
+
+.mohamed-sayed{
+    grid-area: 7 / 1 / 8 / 2;
+    position: relative;
+}
+
+.mohamed-sayed::after{
+    content: "";
+    position: absolute;
+    background-color: #c1c1c1;
+    width: 7px;
+    height: 15px;
+    border-bottom-left-radius: 88%;
+    border-bottom-right-radius: 452%;
+    border-top-left-radius: 178%;
+    left: 93%;
+    bottom: 4%;
+}
+
+.mohamed-sayed::before{
+    content: "";
+    position: absolute;
+    background-color: #c1c1c1;
+    width: 7px;
+    height: 15px;
+    border-bottom-left-radius: 88%;
+    border-bottom-right-radius: 452%;
+    border-top-left-radius: 178%;
+    left: 89%;
+    top: 84%;
+}
+
+.ibrahim-sayed{
+    grid-area: 7 / 2 / 8 / 3;
+    background-color: #000 !important;
+    color: white !important;
+    position: relative;
+}
+
+.ibrahim-sayed p{
+    color: #fff !important;
+}
+
+.ibrahim-sayed::after{
+    content: "";
+    position: absolute;
+    background-color: #c1c1c1;
+    width: 7px;
+    height: 15px;
+    border-bottom-left-radius: 88%;
+    border-bottom-right-radius: 452%;
+    border-top-left-radius: 178%;
+    left: 93%;
+    bottom: 4%;
+}
+
+.ibrahim-sayed::before{
+    content: "";
+    position: absolute;
+    background-color: #c1c1c1;
+    width: 7px;
+    height: 15px;
+    border-bottom-left-radius: 88%;
+    border-bottom-right-radius: 452%;
+    border-top-left-radius: 178%;
+    left: 89%;
+    top: 84%;
+}
+
+.gamal-sayed{
+    grid-area: 7 / 3 / 8 / 4;
+    position: relative;
+}
+
+.gamal-sayed::after{
+    content: "";
+    position: absolute;
+    background-color: #c1c1c1;
+    width: 7px;
+    height: 15px;
+    border-bottom-left-radius: 88%;
+    border-bottom-right-radius: 452%;
+    border-top-left-radius: 178%;
+    left: 93%;
+    bottom: 4%;
+}
+
+.gamal-sayed::before{
+    content: "";
+    position: absolute;
+    background-color: #c1c1c1;
+    width: 7px;
+    height: 15px;
+    border-bottom-left-radius: 88%;
+    border-bottom-right-radius: 452%;
+    border-top-left-radius: 178%;
+    left: 89%;
+    top: 84%;
+}
+
+.eman-sayed{
+    grid-area: 7 / 4 / 8 / 5;
+    position: relative;
+}
+
+.eman-sayed::after{
+    content: "";
+    position: absolute;
+    background-color: #c1c1c1;
+    width: 7px;
+    height: 15px;
+    border-bottom-left-radius: 88%;
+    border-bottom-right-radius: 452%;
+    border-top-left-radius: 178%;
+    left: 93%;
+    bottom: 4%;
+}
+
+.eman-sayed::before{
+    content: "";
+    position: absolute;
+    background-color: #c1c1c1;
+    width: 7px;
+    height: 15px;
+    border-bottom-left-radius: 88%;
+    border-bottom-right-radius: 452%;
+    border-top-left-radius: 178%;
+    left: 89%;
+    top: 84%;
+}
+/* .2D Transform:
+     -Scale: -scaleX(1)=width
+             -scaleY(1)=height
+             -scale(scaleX, scaleY)
+     -Rotate: deg=> Degrees, rad=> Radians, grad=> Gradians, turn=> turn
+              360deg = 6.28rad = 400grad = 1turn
+     -transform: scale() rotate();
+     -translate: translate(x, y); 
+*/
+
+.elzero-2d-parent{
+    position: relative;
+    width: 300px;
+    height: 200px;
+    margin: auto;
+}
+
+.elzero-2d-parent div{
+    width: 300px;
+    height: 200px;
+    margin: auto;
+    background-color: #eee;
+    color: #03a9f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    font-weight: 600;
+    position: absolute;
+    z-index: 3;
+}
+
+.elzero-2d-parent::before{
+    content: "";
+    position: absolute;
+    background-color: #03a9f4;
+    width: 300px;
+    height: 200px;
+    transform: rotate(-10deg);
+    z-index: 2;
+}
+
+.elzero-2d-parent::after{
+    content: "";
+    position: absolute;
+    background-color: #e91e63;
+    width: 300px;
+    height: 200px;
+    transform: rotate(10deg);
+    z-index: 1;
+}
+
+.elzero-2d-parent-1{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: auto;
+}
+
+.elzero-2d-parent-1 div{
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    background-color: #eee;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    font-weight: 600;
+    position: absolute;
+    z-index: 3;
+    border-radius: 50%;
+}
+
+.elzero-2d-parent-1::before{
+    content: "";
+    position: absolute;
+    background-color: transparent;
+    border: 10px solid #03a9f4;
+    border-right: 10px solid transparent;
+    width: 220px;
+    height: 220px;
+    z-index: 2;
+    top: -20px;
+    left: -20px;
+    border-radius: 50%;
+    transition: all 0.5s ease 0.5s;
+}
+
+.elzero-2d-parent-1::after{
+    content: "";
+    position: absolute;
+    background-color: transparent;
+    border: 10px solid #e91e63;
+    border-left: 10px solid transparent;
+    width: 200px;
+    height: 200px;
+    z-index: 2;
+    bottom: -10px;
+    right: -10px;
+    border-radius: 50%;
+    transition: all 0.5s ease 0s;
+}
+
+.elzero-2d-parent-1:hover::before{
+    transform: scale(1, 1) rotate(360deg);
+}
+
+.elzero-2d-parent-1:hover::after{
+    transform: scale(1, 1) rotate(360deg);
+}
+
+/* .transition: -duration: the time it will take with moving (s or ms => 1s=1000ms)
+                -delay: the time before start moving (s or ms => 1s=1000ms)
+                -property: default value is all, the more property check the cite: animatable CSS properties
+                -timing-function: ease(default value)  start slowly than fast than slowly, linear moving the same fast,
+                ease-in started slowly than normal, ease-out started normal than slowly, ease-in-out started and finished slowly
+   .transition:  transition-property transition-duration transition-timing-function transition-delay; 
+*/
+/* .2D Transform:
+     -Scale: -scaleX(1)=width
+             -scaleY(1)=height
+             -scale(scaleX, scaleY)
+     -Rotate: deg=> Degrees, rad=> Radians, grad=> Gradians, turn=> turn
+              360deg = 6.28rad = 400grad = 1turn
+     -transform: scale() rotate();
+     -translate: translate(x, y);
+     -skew: skew(x, y); inhiraf.
+     -matrix: syntax =>  
+             transform: matrix( scaleX(), skewY(), skewX(), scaleY(), translateX(), translateY() ); 
+             or
+             transform: translateX() translateY() scaleX() skewY() skewX() scaleY();
+   .transform-origin(al markaz): devault value => 50% 50% 0
+                      2D transform => transform-origin(x,y)
+                      3D transform => transform-origin(x,y,z)
+                        X-Axis: -CSS Units (px, em, rem)
+                                -%
+                                -Keyword (Left=0%, Center=50%, Right=100%)
+                        Y-Axis: -CSS Units (px, em, rem)
+                                -%
+                                -Keyword (Top=0%, Center=50%, Bottom=100%) 
+   .3D Transform: rotate3d[X (0->1), Y(0->1), Z(0->1), Deg];
+                  translate3d(X, Y, Z);
+   .perspective(al mandhor, al masafa baynaka w bayna al 3onsor)
+        put in the parent
+   .perspective-origin: like the transform-origin, and put just in the parents
+        and does not work without perspective
+   .backface-visibility: visibil (d F), hidden .. (al wajh al khalfi)
+   .transform-style: flat(df)(mosaffah), preserve-3d(likay yahfada makanaho fil 3d) 
+*/
+
+.elzero-3d{
+    width: 150px;
+    height: 74px;
+    box-sizing: border-box;
+    background-color: #ff5722;
+    margin: auto;
+    color: white;
+    font-size: 30px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.elzero-3d::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #ff5722;
+    z-index: -1;
+    transform: skew(10deg, 10deg);
+}
+
+.elzero-3d::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #ff5722;
+    z-index: -2;
+    transform: skew(-10deg, -10deg);
+}
+
+.elzero-3d-1{
+    width: 150px;
+    height: 80px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #009688;
+    color: #fff;
+    font-size: 40px;
+    margin: auto;
+    position: relative;
+}
+
+.elzero-3d-1::before{
+    content: "";
+    position: absolute;
+    width: 10%;
+    height: 100%;
+    background-color: #009688;
+    left: -20%;
+    transform: skew(10deg, 0deg);
+}
+
+.elzero-3d-1::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #009688;
+    z-index: -1;
+    transform: skew(10deg, 0deg);
+    left: -6%;
+}
+
+.elzero-3d-2{
+    width: 200px;
+    height: 200px;
+    margin: 200px auto;
+    background-color: #607d8b;
+    box-sizing: border-box;
+    border-bottom: 5px solid #000;
+    position: relative;
+}
+
+.elzero-3d-2::before{
+    content: "Elzero";
+    position: absolute;
+    color: #fff;
+    font-family: sans-serif;
+    font-weight: bold;
+    top: 170px;
+    right: 145px;
+}
+
+.elzero-3d-2::after{
+    content: "";
+    position: absolute;
+    background-color: #000;
+    box-sizing: border-box;
+    border-bottom: 5px solid #fff;
+    border-left: 5px solid #fff;
+    width: 72%;
+    height: 72%;
+    bottom: 64%;
+    left: 14%;
+    transform: rotate(-45deg);
+}
+
+.parent-3d{
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    perspective: 600px;
+}
+
+.elzero-3d-3{
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+}
+
+.elzero-3d-3:hover{
+    transform: rotateY(-180deg);
+}
+
+.elzero-3d-3::before{
+    content: "Front";
+    position: absolute;
+    background-color: #fa3664;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 30px;
+    backface-visibility: hidden;
+}
+
+
+.elzero-3d-3::after{
+    content: "Back";
+    position: absolute;
+    background-color: #1692fc;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 30px;
+    z-index: -1;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+}
+
+.parent-3d-1{
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    perspective: 600px;
+}
+
+.elzero-3d-4{
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+}
+
+.elzero-3d-4:hover{
+    transform: rotateX(-180deg);
+}
+
+.elzero-3d-4::before{
+    content: "Front";
+    position: absolute;
+    background-color: #fa3664;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 30px;
+    backface-visibility: hidden;
+}
+
+
+.elzero-3d-4::after{
+    content: "Back";
+    position: absolute;
+    background-color: #1692fc;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 30px;
+    z-index: -1;
+    backface-visibility: hidden;
+    transform: rotateX(180deg);
+}
+
+@keyframes turn{
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+.animation-1{
+    width: 50px;
+    height: 50px;
+    margin: 50px auto;
+    border: 5px solid #e22358;
+    border-right-color: transparent;
+    border-radius: 50%;
+    position: relative;
+    animation: turn 1s linear 0s infinite;
+}
+
+.animation-1:hover{
+    animation-play-state: paused;
+}
+.animation-1:hover::before{
+    animation-play-state: paused;
+}
+.animation-1:hover::after{
+    animation-play-state: paused;
+}
+
+.animation-1::before{
+    content: "";
+    position: absolute;
+    width: 65px;
+    height: 65px;
+    border: 5px solid #1e99f7;
+    border-left-color: transparent;
+    border-radius: 50%;
+    top: -13px;
+    left: -13px;
+    animation: turn 1s linear 0s infinite;
+}
+
+
+.animation-1::after{
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border: 5px solid #fca500;
+    border-top-color: transparent;
+    border-radius: 50%;
+    top:-20px;
+    right: -20px;
+    animation: turn 1s linear 0s infinite;
+}
+
+/* .keyFrames => like in the camera when they say for exp 30photo/s to doing a video
+    @keyframes name {
+        from{} to{}
+    }
+    @keyframes change-color {
+        from(0%){ background-color: red; }
+        to(100%){ background-color: blue;}
+    } */
+    /* selectore{
+        animation-name: change-color;
+        animation-duration: 3s;
+        animation-iteration-count: infinite; how much this will work
+        animation-timing-function: like the transition(ease, linear...)
+        animation-direction: reverse; alternate; alternate-reverse;
+        animation-delay: how much we will wate (like transition)
+        animation-fill-mode: forwards(he take the style of the last keyframes); backwards(take the style of the first keyframes); both
+        aniamtion-play-state: running; paused;
+        animation: [name] [duration] [timing-function] [delay] [iteration-count] [direction];
+*/
+
+
+.animation-2{
+    width: 50px;
+    height: 50px;
+    margin: 50px auto;
+    border: 5px solid #1e99f7;
+    border-right-color: transparent;
+    border-radius: 50%;
+    position: relative;
+    animation: turn 1s linear 0s infinite;
+    animation-play-state: paused;
+}
+
+.animation-2:hover{
+    animation-play-state: running;
+}
+.animation-2:hover::before{
+    animation-play-state: running;
+}
+.animation-2:hover::after{
+    animation-play-state: running;
+}
+
+.animation-2::before{
+    content: "";
+    position: absolute;
+    width: 65px;
+    height: 65px;
+    border: 5px solid #fca500;
+    border-left-color: transparent;
+    border-radius: 50%;
+    top: -13px;
+    left: -13px;
+    animation: turn 1s linear 0s infinite;
+    animation-play-state: paused;
+}
+
+
+.animation-2::after{
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border: 5px solid #000;
+    border-top-color: transparent;
+    border-radius: 50%;
+    top:-20px;
+    right: -20px;
+    animation: turn 1s linear 0s infinite;
+    animation-play-state: paused;
+}
+
+.animation-3{
+    width: 50px;
+    height: 50px;
+    background-color: #ddd;
+    border-radius: 50%;
+    box-sizing: border-box;
+    border: 5px solid #000;
+    border-right-color: transparent ;
+    margin: auto;
+    animation: ball 1s linear 0s infinite;
+}
+
+@keyframes ball{
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+.animation-4{
+    width: 800px;
+    height: 800px;
+    padding: 10px;
+    border: 1px solid #000;
+    background-color: #eee;
+    box-sizing: border-box;
+    margin: auto;
+    position: relative;
+    display: grid;
+    grid-template: repeat(9,1fr) / repeat(9, 1fr);
+}
+
+.animation-4 div{
+    background-color: #323234;
+}
+
+.animation-4-1{
+    grid-area: 1 / 1 / 9 / 2;
+}
+
+.animation-4-2{
+    grid-area: 1 / 1 / 2 / 5;
+}
+.animation-4-3{
+    grid-area: 1 / 6 / 9 / 7;
+}
+.animation-4-4{
+    grid-area: 5 / 1 / 6 / 5;
+}
+.animation-4-5{
+    grid-area: 9 / 1 / 10 / 5;
+}
+.animation-4-6{
+    grid-area: 9 / 6 / 10 / 10;
+}
+
+.animation-4::before{
+    content: "";
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    background-color: #fea604;
+    bottom: 16px;
+    right: 15px;
+    opacity: 0;
+    animation: before-animation 10s linear 0s infinite /*before-animation-2 5s linear 5s infinite*/ ;
+    /* animation: before-animation-2 5s linear 5s infinite ; */
+}
+
+@keyframes before-animation{
+    0%{
+        bottom: 16px;
+        opacity: 0;
+        right: 15px;
+    }
+    10%{
+        bottom: 16px;
+        opacity: 1;
+        right: 15px;
+    }
+    20%{
+        bottom: 16px;
+        right: 275px;
+        opacity: 1;
+    }
+    30%{
+        opacity: 1;
+        bottom: 707px;
+        right: 275px;
+    }
+    45%{
+        opacity: 0;
+        bottom: 707px;
+        right: 275px;
+    }
+    100%{
+        opacity: 0;
+        bottom: 707px;
+        right: 275px;
+    }
+    
+}
+
+/* animation: [name] [duration] [timing-function] [delay] [iteration-count] [direction]; */
+
+.animation-4::after{
+    content: "";
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    background-color: #fea604;
+    top: 16px;
+    left: 275px;
+    animation: before-animation-2 10s linear 0s infinite;
+}
+
+@keyframes before-animation-2{
+    45%{
+        top: 16px;
+        left: 275px;
+    }
+    50.5%{
+        top: 16px;
+        left: 151px;
+    }
+    56%{
+        top: 16px;
+        left: 15px; 
+    }
+    61.5%{
+        top: 362px;
+        left: 15px;
+    }  
+    67%{
+        top: 362px;
+        left: 275px;
+    } 
+    72.5%{
+        top: 362px;
+        left: 15px;
+    } 
+    78%{
+        top: 707px;
+        left: 15px;
+    } 
+    83.5%{
+        top: 707px;
+        left: 275px;
+    }
+    89%{
+        top: 707px;
+        left: 15px;
+    }
+    94.5%{
+        top: 16px;
+        left: 15px;
+    }
+    100%{
+        top: 16px;
+        left: 275px;
+    }
+
+}
+
+/* div.main1.red1{
+    color: red;
+} */
+
+/* or
+  .main1.red1:not(p){
+    color: red;
+   } 
+*/
+
+/* .child1:nth-child(2){
+    color: red;
+} */
+
+/* .baby:only-child{
+    color: red;
+} */
+
+/* div[title]:not(.no-need ,.parent8 div[title]){
+    color: red;
+} */
+
+/* div div[title]:last-child:not(.no-need1, .no-need1 div[title]){
+    color: red;
+} */
+
+/* div div:nth-last-of-type(2):not(.no-need2 div){
+    color: red;
+} */
+
+/* div h3 + div:nth-of-type(2):not(.no-need-2 div, .no-need3 div, div:nth-child(3)){
+    color: red;
+} */
+
+/* div p, div div:not(:first-child, :last-child){
+    color: red;
+} */
+
+
+/* .Grid: 
+     1-parent:
+        -display: Grid | inline Grid
+        -grid-template-columns => Number of culumns in => n1px n2px npx . . .;auto, %,
+          repeat(n or auto-fill(responsiv), width); fraction(nfr) is like the auto
+          minmax(min-width, max-width);
+          we can write for resposive for exp: 
+           grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+           and there is auto-fill and auto-fit (see the deferense is youtube)
+           and we have (CH) it calculate the number of character
+        -grid-template-rows: height1 height2 height3 ....=> numbers of rows height in 
+          [px, %, auto, fraction, repeat(), mix]
+        -row-gap: the space between the rows
+        -column-gap: the space between the columns
+        -gap: row-gap column-gap;
+        -justify-content: like the flexbox;
+        -align-content: like the flexbox;
+        -grid-template-areas: the areas of the elements for exp:
+          grid-template-areas: "logo logo nav nav nav nav nav nav nav nav""the secound row""the third row""..."; we have 2 columns for logo and 8 for nav
+          slectore{
+              grid-area: logo; }
+          selectore-2{
+              grid-area: nav; }
+     2-for child:
+       -grid-column: grid-column-start / grid-column-end; its like a span in table and also we can write like that
+        grid-column: span 3 or 1 / span 3 or 1 / 4; (/) means tell
+       -grid-row: grid-row-start / grid-row-end; the same of grid-column
+       -grid-area: grid-row-start / grid-column-start / grid-row-end / grid-column-end; 
+*/
+
+@media print{
+    .assign-one-media{
+        font-size: 40px;
+    }
+}
+
+.assign-two-media{
+    width: 100%;
+    text-transform: capitalize;
+    text-align: center;
+}
+
+.assign-two-media div{
+    background-color: #eee;
+}
+
+.assign-two-media p{
+    color:#000;
+    margin: 0;
+}
+
+/* small */
+@media (max-width: 767px) {
+    .assign-two-media div{
+        width: 100%;
+        margin: 10px;
+        padding: 10px;
+    }
+    .assign-two-media h3{
+        color: #000;
+        margin: 0;
+    }
+}
+
+/* medium */
+@media (min-width: 768px) and (max-width: 991px){
+    .assign-two-media{
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+    .assign-two-media div{
+        width: calc(50% - 60px);
+        margin-bottom: 20px;
+        padding: 10px;
+    }
+    .assign-two-media h3{
+        color: red;
+        margin: 0;
+    }
+}
+
+/* large */
+@media (min-width: 992px){
+    .assign-two-media{
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: nowrap;
+    }
+    .assign-two-media div{
+        width: 20%;
+        padding: 10px;
+    }
+    .assign-two-media h3{
+        color: rgb(50, 182, 164);
+        margin: 0;
+    }
+}
+
+.assign-three-media{
+    width: 100%;
+    text-transform: capitalize;
+    text-align: center;
+}
+
+.assign-three-media div{
+    background-color: #eee;
+}
+
+.assign-three-media p{
+    color:#000;
+    margin: 0;
+}
+
+/* small */
+@media (max-width: 767px) {
+    .assign-three-media div{
+        width: 100%;
+        margin: 10px;
+        padding: 10px;
+    }
+    .assign-three-media h3{
+        color: #000;
+        margin: 0;
+    }
+}
+
+/* medium */
+@media (min-width: 768px) and (max-width: 991px){
+    .assign-three-media{
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+    .assign-three-media div{
+        width: calc((100% / 3) - 60px);
+        padding: 10px;
+        
+    }
+    .assign-three-media div:first-child{
+        width: calc(100% - 80px);
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+    .assign-three-media h3{
+        color: red;
+        margin: 0;
+    }
+}
+
+/* large */
+@media (min-width: 992px){
+    .assign-three-media{
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+    .assign-three-media div{
+        width: calc((100% / 2) - 60px);
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+    .assign-three-media div:first-child{
+        width: calc(100% - 75px);
+        padding: 10px;
+        
+    }
+    .assign-three-media div:last-child{
+        width: calc(100% - 75px);
+        padding: 10px;
+      
+    }
+    .assign-three-media h3{
+        color: rgb(50, 182, 164);
+        margin: 0;
+    }
+}
+
+.arrow{
+    background-color: #eee;
+    width: 300px;
+    padding: 20px;
+    margin: 20px auto;
+    position: relative;
+}
+
+.top::before, .right::before, .bottom::before, .left::before{
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #eee;
+    transform: rotate(45deg); 
+}
+
+.top::before{
+    top: -10px;
+    left: calc(50% - 10px);
+}
+
+.right::before{
+    right: -10px;
+    top: calc(50% - 10px);
+}
+
+.bottom::before{
+    bottom: -10px;
+    left: calc(50% - 10px);
+}
+
+.left::before{
+    left: -10px;
+    top: calc(50% - 10px);
+}
